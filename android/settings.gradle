@@ -1,0 +1,3 @@
+rootProject.name = 'BoostFingers'
+
+include ':app'
