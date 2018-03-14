@@ -16,7 +16,7 @@ class Main extends Component {
       this.setState({
         currentScreen: 'App'
       });
-    }, 1);
+    }, 3000);
   }
 
   render() {
