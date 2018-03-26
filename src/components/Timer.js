@@ -3,17 +3,18 @@ import { View, StyleSheet } from 'react-native';
 
 export default class TimerView extends Component {
 
-  // timerStyle = () => {
-  //   return {
-  //     flex: this.props.timer,
-  //     backgroundColor: 'orange'
-  //   }
-  // }
+  timerStyle = () => {
+    let { timer } = this.props;
+    return {
+      flex: timer,
+      backgroundColor: '#FF6D62'
+    }
+  }
 
   render() {
     return (
       <View style={styles.timerWrapper}>
-        {/* <View style={this.timerStyle()}></View> */}
+        <View style={this.timerStyle()}></View>
       </View>
     )
   }
@@ -21,8 +22,8 @@ export default class TimerView extends Component {
 
 const styles = StyleSheet.create({
   timerWrapper: {
-    flex: .2,
-    backgroundColor: 'red',
+    flex: 0.2,
+    backgroundColor: '#4D525C',
     flexDirection: 'row'
   }
 })

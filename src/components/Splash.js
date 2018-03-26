@@ -6,7 +6,7 @@ export default class Splash extends Component {
     return (
       <View style={styles.splash} >
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>Boost Fingers</Text>
+          <Text style={styles.title}>Fast Fingers</Text>
         </View>
         <View style={styles.subTitleWrapper}>
           <Text style={styles.subtitle}>Powered by React Native © 2018</Text>
@@ -18,14 +18,14 @@ export default class Splash extends Component {
 
 const styles = StyleSheet.create({
   splash: {
-    backgroundColor: '#ff7675',
+    backgroundColor: '#FF6D62',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   title: {
     color: 'white',
-    fontSize: 35,
+    fontSize: 50,
     fontWeight: 'bold'
   },
   subtitle: {

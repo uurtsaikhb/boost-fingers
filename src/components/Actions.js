@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 export default class Actions extends Component {
   render() {
+    let buttonText = 'RESTART';
+    let { onRestartHandler } = this.props;
+
     return (
-      <View style={styles.actionView}></View>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={onRestartHandler}>
+        <Text style={styles.buttonText}>
+          {buttonText}
+        </Text>
+      </TouchableOpacity>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  actionView: {
+  button: {
     flex: 0.6,
-    backgroundColor: 'orange'
+    backgroundColor: '#FF6D62',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 24,
+    color: '#ffffff',
+    fontWeight: '600',
   }
 });
