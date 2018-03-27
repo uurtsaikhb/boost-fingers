@@ -16,6 +16,18 @@ export default class Splash extends Component {
     finished: false
   }
 
+  render() {
+    let { score, timer } = this.state;
+    return (
+      <View style={styles.container}>
+        <TimerView timer={timer} />
+        <Point score={score} />
+        <TouchArea onScoreHandler={this.onScoreHandler.bind(this)} />
+        <Actions onRestartHandler={this.onRestartHandler.bind(this)} />
+      </View>
+    );
+  }
+
   /**
    * start game
    */
@@ -85,18 +97,6 @@ export default class Splash extends Component {
     });
 
     this.stopTimer();
-  }
-
-  render() {
-    let { score, timer } = this.state;
-    return (
-      <View style={styles.container}>
-        <TimerView timer={timer} />
-        <Point score={score} />
-        <TouchArea onScoreHandler={this.onScoreHandler.bind(this)} />
-        <Actions onRestartHandler={this.onRestartHandler.bind(this)} />
-      </View>
-    );
   }
 }
 
