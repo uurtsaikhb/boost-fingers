@@ -7,13 +7,15 @@ export default class Actions extends Component {
     let { onRestartHandler } = this.props;
 
     return (
-      <TouchableOpacity
-        style={styles.button}
-        onPress={onRestartHandler}>
-        <Text style={styles.buttonText}>
-          {buttonText}
-        </Text>
-      </TouchableOpacity>
+      <View
+        style={styles.button}>
+        <TouchableOpacity
+          onPress={onRestartHandler}>
+          <Text style={styles.buttonText}>
+            {buttonText}
+          </Text>
+        </TouchableOpacity>
+      </View>
     )
   }
 }
@@ -28,6 +30,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 24,
     color: '#ffffff',
-    fontWeight: '600',
+    fontWeight: '300',
   }
 });
