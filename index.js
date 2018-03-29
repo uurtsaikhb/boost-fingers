@@ -9,14 +9,14 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentScreen: 'Splash'
+      currentScreen: 'App'
     }
 
-    setTimeout(() => {
-      this.setState({
-        currentScreen: 'App'
-      });
-    }, 2000);
+    // setTimeout(() => {
+    //   this.setState({
+    //     currentScreen: 'App'
+    //   });
+    // }, 2000);
   }
 
   render() {
