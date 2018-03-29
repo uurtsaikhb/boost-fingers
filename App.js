@@ -5,23 +5,14 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  StatusBar
-} from 'react-native';
+import { Platform, StyleSheet, Text, View, StatusBar } from 'react-native';
 
 import Splash from './src/components/Splash';
 import Game from './src/components/Game';
 
-
 export default class App extends Component {
   render() {
-    return (
-      <Game />
-    );
+    return <Game />;
   }
 }
 
@@ -30,16 +21,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });

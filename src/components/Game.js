@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Animated,
-  AsyncStorage
-} from 'react-native';
+import { View, Text, StyleSheet, Animated, AsyncStorage } from 'react-native';
 
 import Modal from 'react-native-root-modal';
 
@@ -15,9 +9,7 @@ import Actions from './Actions';
 import Point from './Point';
 import GameOver from './GameOver';
 
-
 const BEST_SCORE_KEY = 'BEST_SCORE_KEY';
-
 
 export default class Splash extends Component {
   timerInterval;
@@ -30,7 +22,7 @@ export default class Splash extends Component {
     finished: false,
     modalVisible: false,
     modalOpacity: new Animated.Value(0)
-  }
+  };
 
   componentWillMount = async () => {
     try {
@@ -41,23 +33,20 @@ export default class Splash extends Component {
     } catch (error) {
       // do nothing
     }
-  }
+  };
 
   render() {
     const { score, bestScore, timer, modalVisible, modalOpacity } = this.state;
 
     return (
       <View style={styles.container}>
-
-        <Modal
-          visible={modalVisible}
-          style={styles.modal}>
-
+        <Modal visible={modalVisible} style={styles.modal}>
           <GameOver
             opacity={modalOpacity}
             bestScore={bestScore}
             currentScore={score}
-            handlerPlayAgain={this.handlerPlayAgain.bind(this)} />
+            handlerPlayAgain={this.handlerPlayAgain.bind(this)}
+          />
         </Modal>
 
         <TimerView timer={timer} />
@@ -67,7 +56,6 @@ export default class Splash extends Component {
         <TouchArea onScoreHandler={this.onScoreHandler.bind(this)} />
 
         <Actions onRestartHandler={this.onRestartHandler.bind(this)} />
-
       </View>
     );
   }
@@ -80,21 +68,21 @@ export default class Splash extends Component {
     const { modalOpacity } = this.state;
     Animated.spring(modalOpacity, { toValue: 0 }).start();
     this.setState({
-      modalVisible: false,
+      modalVisible: false
     });
     this.resetGame();
-  }
+  };
 
   /**
    * handler for actual game button,
    * increases score,
-   * 
+   *
    * start game by first touch
    */
   onScoreHandler = () => {
     let { score, running } = this.state;
 
-    // start game 
+    // start game
     if (!running) {
       this.startGame();
     }
@@ -103,15 +91,15 @@ export default class Splash extends Component {
     this.setState({
       score: ++score
     });
-  }
+  };
 
   /**
-   * handles restart and 
+   * handles restart and
    * reset score, timer and other variables
    */
   onRestartHandler = () => {
     this.resetGame();
-  }
+  };
 
   /**
    * starts game
@@ -127,16 +115,23 @@ export default class Splash extends Component {
         this.finishGame();
       } else {
         this.setState({
-          timer: this.state.timer + 0.0015
+          timer: this.state.timer + 0.1015
         });
       }
     }, 1);
-  }
+  };
 
   /**
    * Finishes game
    */
   finishGame = async () => {
+    this.stopTimer();
+    this.setState({
+      running: false,
+      finished: true,
+      modalVisible: true
+    });
+
     try {
       if (this.state.score > this.state.bestScore) {
         this.setState({
@@ -150,14 +145,7 @@ export default class Splash extends Component {
 
     const { modalOpacity } = this.state;
     Animated.spring(modalOpacity, { toValue: 1 }).start();
-
-    this.stopTimer();
-    this.setState({
-      running: false,
-      finished: true,
-      modalVisible: true
-    });
-  }
+  };
 
   /**
    * Reset game status
@@ -170,19 +158,19 @@ export default class Splash extends Component {
       running: false,
       finished: false
     });
-  }
+  };
 
   stopTimer = () => {
     clearImmediate(this.timerInterval);
-  }
+  };
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#353B48',
-    flex: 1,
+    flex: 1
   },
   modal: {
-    ...StyleSheet.absoluteFillObject,
-  },
+    ...StyleSheet.absoluteFillObject
+  }
 });
