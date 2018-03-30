@@ -115,7 +115,7 @@ export default class Splash extends Component {
         this.finishGame();
       } else {
         this.setState({
-          timer: this.state.timer + 0.1015
+          timer: this.state.timer + 0.0015
         });
       }
     }, 1);

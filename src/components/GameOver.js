@@ -61,7 +61,7 @@ export default class GameOver extends Component {
             });
           }
 
-          this._displayToast();
+          // this._displayToast();
         },
         error => {
           this.setState({
@@ -69,7 +69,7 @@ export default class GameOver extends Component {
             toastText: 'Error occurred!'
           });
 
-          this._displayToast();
+          // this._displayToast();
         }
       );
   };
